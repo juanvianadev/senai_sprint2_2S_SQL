@@ -42,5 +42,3 @@ FOREIGN KEY (idCarro) REFERENCES tb_carros(id)
 -- DROP DATABASE bd_carro;
 
 ALTER TABLE tb_proprietario ADD idade INT(3) NOT NULL;
-
-

@@ -7,14 +7,14 @@ USE bd_carro;
 
 -- CRIAR TABELA
 CREATE TABLE tb_carros(
-id INT(10) NOT NULL,
+id_carro INT(10) NOT NULL,
 marca VARCHAR(100) NOT NULL,
 modelo VARCHAR(100) NOT NULL,
 valor DECIMAL(10,2) NOT NULL,
 cor VARCHAR(50) NOT NULL,
-numeroVendas INT(10),
+numero_vendas INT(10),
 ano INT(4),
-PRIMARY KEY(id)
+PRIMARY KEY(id_carro)
 );
 
 -- NOT NULL -> Campo Obrigatório
@@ -22,21 +22,21 @@ PRIMARY KEY(id)
 SELECT * FROM tb_carros;
 
 CREATE TABLE tb_proprietario(
-id INT(10) NOT NULL,
+id_proprietario INT(10) NOT NULL,
 nome VARCHAR(100) NOT NULL,
-idCarro INT(10) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (idCarro) REFERENCES tb_carros(id)
+id_carro INT(10) NOT NULL,
+PRIMARY KEY (id_proprietario),
+FOREIGN KEY (id_carro) REFERENCES tb_carros(id_carro)
 );
 
 CREATE TABLE tb_historico_preco(
-id INT(10) NOT NULL AUTO_INCREMENT,
-dataModificacao DATETIME,
-valorAnterior DECIMAL(10,2),
-valorNovo DECIMAL(10,2),
-idCarro INT(10) NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (idCarro) REFERENCES tb_carros(id)
+id_historico_preco INT(10) NOT NULL AUTO_INCREMENT,
+data_modificacao DATETIME,
+valor_anterior DECIMAL(10,2),
+valor_novo DECIMAL(10,2),
+id_carro INT(10) NOT NULL,
+PRIMARY KEY (id_historico_preco),
+FOREIGN KEY (id_carro) REFERENCES tb_carros(id_carro)
 );
 -- DELETAR A BASE
 -- DROP DATABASE bd_carro;

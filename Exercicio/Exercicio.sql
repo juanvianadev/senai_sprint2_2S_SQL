@@ -139,7 +139,6 @@ INSERT INTO tb_atendimento(id_pet, id_veterinario, data_nascimento, descricao) V
 
 SELECT id_pet, nome, data_nascimento FROM tb_pets WHERE data_nascimento = (SELECT MAX(data_nascimento) FROM tb_pets);
 SELECT id_pet, nome, data_nascimento FROM tb_pets WHERE data_nascimento = (SELECT MIN(data_nascimento) FROM tb_pets);
-
 SELECT COUNT(id_pet) FROM tb_pets;
 SELECT * FROM tb_pets ORDER BY nome ASC;
 SELECT * FROM tb_pets ORDER BY nome DESC;

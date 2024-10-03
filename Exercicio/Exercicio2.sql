@@ -1,7 +1,6 @@
 CREATE DATABASE db_biblioteca;
 USE db_biblioteca;
 SET @@autocommit = ON;
-
 -- DDL
 
 CREATE TABLE tb_autores(
@@ -35,7 +34,9 @@ PRIMARY KEY(id_emprestimo),
 id_membro INT(100) NOT NULL,
 FOREIGN KEY (id_membro) REFERENCES tb_membros(id_membro),
 id_autor INT(100) NOT NULL,
-FOREIGN KEY (id_autor) REFERENCES tb_autores(id_autor)
+FOREIGN KEY (id_autor) REFERENCES tb_autores(id_autor),
+id_livro INT(100) NOT NULL,
+FOREIGN KEY (id_livro) REFERENCES tb_livros(id_livro)
 );
 
 -- DML
@@ -55,10 +56,10 @@ INSERT INTO tb_membros (nome, data_adesao) VALUES
 ("Caique", "1980/01/01"), 
 ("Carol", "1989/01/01");
 
-INSERT INTO tb_emprestimos (data_emprestimo, data_devolucao,id_membro,id_autor) VALUES 
-("2024/01/01", "2024/02/01","1","1"), 
-("2024/02/01", "2024/03/01","2","2"), 
-("2024/03/01", "2024/04/01","3","3");
+INSERT INTO tb_emprestimos (data_emprestimo, data_devolucao, id_membro, id_autor, id_livro) VALUES 
+("2024/01/01", "2024/02/01","1","1","1"), 
+("2024/02/01", "2024/03/01","2","2","2"), 
+("2024/03/01", "2024/04/01","3","3","3");
 
 -- DQL
 
